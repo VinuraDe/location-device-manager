@@ -1,18 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout";
+import HomePage from "./pages/homePage";
+import LocationsPage from "./pages/locations"; 
+import DevicesPage from "./pages/devices";
+import AddLocation from "./pages/locations/AddLocation";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <h1>Hello frontend</h1>
-       </div>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="locations" element={<LocationsPage />} />
+          <Route path="devices" element={<DevicesPage />} />
+          <Route path="locstions" element={<AddLocation />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
