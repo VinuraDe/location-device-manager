@@ -5,6 +5,7 @@ import HomePage from "./pages/homePage";
 import LocationsPage from "./pages/locations";
 import DevicesPage from "./pages/devices";
 import AddLocation from "./pages/locations/addLocation";
+import UpdateLocationForm from "./pages/locations/updateLocation";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="locations" element={<LocationsPage />} />
           <Route path="devices" element={<DevicesPage />} />
           <Route path="locations/addLocation" element={<AddLocation />} />
+          <Route path="locations/updateLocation/" element={<UpdateLocationForm />} />
         </Route>
       </Routes>
     </Router>

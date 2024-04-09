@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import Locations from "../components/LocationsTable";
+import NavBar from "./NavBar";
 
 const RootLayout = () => {
   return (

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hero-bg {
+    background-image: url("./assets/images/bgImage.jpg");
+    /* height: 100vh; */
+  }
+ 

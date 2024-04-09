@@ -92,3 +92,13 @@ exports.deleteDevice = async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 };
+
+exports.getAllDevices = async (req, res) => {
+  try {
+    const devices = await Device.find();
+    res.json(devices);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server Error' });
+  }
+};

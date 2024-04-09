@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Card, Typography, Button } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Card, Typography, Button} from "@material-tailwind/react";
+import UpdateLocationForm from "../pages/locations/updateLocation";
 
 function LocationTable() {
   const [locations, setLocations] = useState([]);
+
 
   useEffect(() => {
     axios
@@ -27,65 +28,66 @@ function LocationTable() {
         console.error('Error deleting location:', error);
       });
   };
-  
 
-
-  const handleUpdate = (id) => {
-    // Implement update logic here
-    console.log(`Update location with id ${id}`);
-  };
-
-  const handleView = (id) => {
-    // Implement view logic here
-    console.log(`View location with id ${id}`);
+  const handleUpdate = (locationId) => {
+    // Use history.push to navigate to the update form page with the locationId
+    history.push(`../updateLocation/${locationId}`);
   };
 
   return (
     <div>
-      <Card>
-        <h1 className="text-2xl font-semibold text-center">Locations</h1>
+      <Card className="">
+        <h1 className="text-2xl font-bold text-center mb-4">Locations</h1>
         <div className="flex justify-center">
-          <table className="table-auto text-left">
-            <thead>
+          <table className="fixed ml-3 mr-3">
+            <thead className="ml-3">
               <tr>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
+                <th className="border-b border-r-2 p-2 w-1/6 text-center ml-3">
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal leading-none opacity-70"
+                    className="opacity-70 font-extrabold"
                   >
                     Name
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
+                <th className="border-b border-r-2 border-blue-gray-200 bg-blue-gray-50 p-2 w-1/6 font-bold">
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal leading-none opacity-70"
+                    className="opacity-70 font-extrabold"
                   >
                     Address
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2">
+                <th className="border-b border-r-2  bg-blue-gray-50 p-2 w-1/6">
                   <Typography
                     variant="small"
                     color="blue-gray"
-                    className="font-normal leading-none opacity-70"
+                    className="font-extrabold opacity-70"
                   >
                     Phone
                   </Typography>
                 </th>
-                <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-2"></th>
+                <th className="border-b border-blue-gray-200 bg-blue-gray-50 p-2 w-1/6">
+                  <Typography
+                    variant="small"
+                    color="blue-gray"
+                    className="font-extrabold opacity-70"
+                  >
+                    Actions
+                  </Typography>
+                </th>
               </tr>
             </thead>
             <tbody>
               {locations.map((location) => (
                 <tr key={location._id}>
-                  <td className="p-2">
+                  <td className="p-2 font-semibold">
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
+                      className="flex justify-center font-semibold"
                     >
                       {location.name}
                     </Typography>
@@ -94,7 +96,7 @@ function LocationTable() {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
+                      className="flex justify-center font-semibold"
                     >
                       {location.address}
                     </Typography>
@@ -103,28 +105,24 @@ function LocationTable() {
                     <Typography
                       variant="small"
                       color="blue-gray"
-                      className="font-normal"
+                      className="flex justify-center font-semibold"
                     >
                       {location.phone}
                     </Typography>
                   </td>
-                  <td className="p-2 flex gap-2">
-                    <Button
+                  <td className="p-2 flex gap-2 flex justify-center">
+                    <Button className="text-white bg-gray-800 hover:bg-gray-700 font-bold py-2 px-4 rounded"
                       onClick={() => handleDelete(location._id)}
-                      ripple="light"
-                      className="bg-red-500 hover:bg-red-800 text-white"
                     >
                       Delete
                     </Button>
-                    <Button
+                    <Button className="text-white bg-gray-800 hover:bg-gray-700 font-bold py-2 px-4 rounded"
                       onClick={() => handleUpdate(location._id)}
-                      className="bg-blue-500 hover:bg-blue-600 text-white"
                     >
                       Update
                     </Button>
-                    <Button
+                    <Button className="text-white bg-gray-800 hover:bg-gray-700 font-bold py-2 px-4 rounded"
                       onClick={() => handleView(location._id)}
-                      className="bg-gray-500 hover:bg-gray-600 text-white"
                     >
                       View Devices
                     </Button>
@@ -140,3 +138,4 @@ function LocationTable() {
 }
 
 export default LocationTable;
+

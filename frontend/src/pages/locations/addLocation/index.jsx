@@ -31,11 +31,11 @@ function AddLocation() {
   return (
     <main>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-        <div className="mb-4">
+        <div className="mb-4 mt-5 ">
           <h1 className="text-2xl font-bold text-center">Add Location</h1>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-bold text-gray-700"
           >
             Name:
           </label>
@@ -44,12 +44,12 @@ function AddLocation() {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 block w-full bg-slate-200 rounded"
+            className="mt- block w-full bg-slate-100 rounded"
             required
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="address" className="block font-medium text-gray-700">
+          <label htmlFor="address" className="block font-bold text-gray-700">
             Address:
           </label>
           <input
@@ -64,7 +64,7 @@ function AddLocation() {
         <div className="mb-4">
           <label
             htmlFor="phone"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-bold text-gray-700"
           >
             Phone:
           </label>
@@ -79,7 +79,7 @@ function AddLocation() {
         </div>
         <button
           type="submit"
-          className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="inline-flex items-center px-4 py-2  font-medium rounded text-white bg-gray-800 hover:bg-gray-700 "
         >
           Create Location
         </button>
